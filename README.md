@@ -16,9 +16,14 @@ Result:Migration folders will be created containing .cs file having functions "u
 table according to model classes.
 
 # 3)After Commenting Code for Up and deleting down function as we dont want to drop table we will run update command
-In Nuget Console: Update-Database verbose
+In Nuget Console: Update-Database -verbose
 In Powershell: dotnet ef database update
 Result:A table named "Migration History" is created.Database and classes are now synchronized.
 
 Now we can update anything in table like adding marks column.Update in model class.Add migration with name for example marksadded and then run update command.DataBase 
 Table will be updated on its own
+
+Note:In case of this error:
+No migrations configuration type was found in the assembly 'QuoraForPucit'. (In Visual Studio you can use the Enable-Migrations command from Package Manager Console to add a migrations configuration)
+run EntityFrameworkCore\Add-Migration "<name>"
+ EntityFrameworkCore\Update-Database -verbose
